@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "210254497657",
+    "project_id": "kayan-ec441",
+    "storage_bucket": "kayan-ec441.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210254497657:android:b59226b1de490a71e711a8",
+        "android_client_info": {
+          "package_name": "com.kayan.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210254497657-3ktcbnq0fb89uvir68d8ecr2r9is671t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWfddWqCXcc7S6rI7ZWLJXKebMHyXZn60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210254497657-3ktcbnq0fb89uvir68d8ecr2r9is671t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
