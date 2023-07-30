@@ -99,31 +99,31 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
                     SizedBox(
                       height: boxConstraints.maxHeight * (0.025),
                     ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 2),
-                          child: Icon(
-                            Icons.call,
-                            size: 12,
-                            color: Theme.of(context).colorScheme.onBackground,
-                          ),
-                        ),
-                        SizedBox(
-                          width: boxConstraints.maxWidth * (0.025),
-                        ),
-                        Text(
-                          teacher.mobile,
-                          maxLines: 1,
-                          style: TextStyle(
-                            fontSize: 11,
-                            color: Theme.of(context).colorScheme.onBackground,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   children: [
+                    //     Padding(
+                    //       padding: const EdgeInsets.only(top: 2),
+                    //       child: Icon(
+                    //         Icons.call,
+                    //         size: 12,
+                    //         color: Theme.of(context).colorScheme.onBackground,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: boxConstraints.maxWidth * (0.025),
+                    //     ),
+                    //     Text(
+                    //       teacher.mobile,
+                    //       maxLines: 1,
+                    //       style: TextStyle(
+                    //         fontSize: 11,
+                    //         color: Theme.of(context).colorScheme.onBackground,
+                    //       ),
+                    //       overflow: TextOverflow.ellipsis,
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               )
