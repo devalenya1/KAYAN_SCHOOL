@@ -16,14 +16,14 @@ const Duration homeMenuBottomSheetAnimationDuration =
 const Duration changeSliderDuration = Duration(seconds: 5);
 
 //Number of latest notices to show in home container
-const int numberOfLatestNotciesInHomeScreen = 3;
+const int numberOfLatestNotciesInHomeScreen = 5;
 
 //notification channel keys
 const String notificationChannelKey = "basic_channel";
 
 //Set demo verion this when upload this code to codecanyon
 //Is demo version
-const bool isDemoVersion = false;
+const bool isDemoVersion = true;
 
 String getExamStatusTypeKey(String examStatus) {
   if (examStatus == "0") {
