@@ -434,7 +434,7 @@ class UiUtils {
 
   static bool isDemoVersionEnable() {
     //If isDemoVersion is not declarer then it return always false
-    return isDemoVersion;
+    return false;
   }
 
   //0 = Pending , 1 = Paid, 2 = Partially Paid ˆset according to API response.
