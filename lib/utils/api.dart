@@ -164,12 +164,12 @@ class Api {
       if (kDebugMode) {
         print("Response: ${response.data}");
       }
-      if (response.data['error']) {
-        if (kDebugMode) {
-          print("POST ERROR: ${response.data}");
-        }
-        throw ApiException(response.data['code'].toString());
-      }
+      // if (response.data['error']) {
+      //   if (kDebugMode) {
+      //     print("POST ERROR: ${response.data}");
+      //   }
+      //   throw ApiException(response.data['code'].toString());
+      // }
       return Map.from(response.data);
     } 
     // on DioException catch (e) {
@@ -206,25 +206,27 @@ class Api {
         print("Response: ${response.data}");
       }
 
-      if (response.data['error']) {
-        if (kDebugMode) {
-          print("GET ERROR: ${response.data}");
-        }
-        throw ApiException(response.data['code'].toString());
-      }
+      // if (response.data['error']) {
+      //   if (kDebugMode) {
+      //     print("GET ERROR: ${response.data}");
+      //   }
+      //   throw ApiException(response.data['code'].toString());
+      // }
 
       return Map.from(response.data);
-    } on DioException catch (e) {
-      throw ApiException(
-        e.error is SocketException
-            ? ErrorMessageKeysAndCode.noInternetCode
-            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
-      );
-    } on ApiException catch (e) {
-      throw ApiException(e.errorMessage);
-    } catch (e) {
-      throw ApiException(ErrorMessageKeysAndCode.defaultErrorMessageKey);
-    }
+    } 
+    // on DioException catch (e) {
+    //   throw ApiException(
+    //     e.error is SocketException
+    //         ? ErrorMessageKeysAndCode.noInternetCode
+    //         : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+    //   );
+    // } 
+    // on ApiException catch (e) {
+    //   throw ApiException(e.errorMessage);
+    // } catch (e) {
+    //   throw ApiException(ErrorMessageKeysAndCode.defaultErrorMessageKey);
+    // }
   }
 
   static Future<void> download({
@@ -244,16 +246,17 @@ class Api {
           updateDownloadedPercentage((count / total) * 100);
         },
       );
-    } on DioException catch (e) {
-      throw ApiException(
-        e.error is SocketException
-            ? ErrorMessageKeysAndCode.noInternetCode
-            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
-      );
-    } on ApiException catch (e) {
-      throw ApiException(e.errorMessage);
-    } catch (e) {
-      throw ApiException(ErrorMessageKeysAndCode.defaultErrorMessageKey);
-    }
+    } 
+    // on DioException catch (e) {
+    //   throw ApiException(
+    //     e.error is SocketException
+    //         ? ErrorMessageKeysAndCode.noInternetCode
+    //         : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+    //   );
+    // } on ApiException catch (e) {
+    //   throw ApiException(e.errorMessage);
+    // } catch (e) {
+    //   throw ApiException(ErrorMessageKeysAndCode.defaultErrorMessageKey);
+    // }
   }
 }
