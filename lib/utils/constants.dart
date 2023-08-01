@@ -1,8 +1,9 @@
 import 'package:eschool/utils/labelKeys.dart';
 
 //database urls
-//Please add your admin panel url here and make sure you do not add '/' at the end of the url
-const String baseUrl = "https://school.safqatbh.com";
+// //Please add your admin panel url here and make sure you do not add '/' at the end of the url
+// const String baseUrl = "https://school.safqatbh.com";
+const String baseUrl = "https://eschool.wrteam.me";
 const String databaseUrl = "$baseUrl/api/";
 
 //error message display duration
@@ -23,7 +24,7 @@ const String notificationChannelKey = "basic_channel";
 
 //Set demo verion this when upload this code to codecanyon
 //Is demo version
-const bool isDemoVersion = true;
+const bool isDemoVersion = false;
 
 String getExamStatusTypeKey(String examStatus) {
   if (examStatus == "0") {
