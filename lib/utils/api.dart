@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:http/http.dart';
 import 'package:dio/dio.dart';
 import 'package:eschool/utils/constants.dart';
 import 'package:eschool/utils/errorMessageKeysAndCodes.dart';
@@ -170,13 +171,15 @@ class Api {
         throw ApiException(response.data['code'].toString());
       }
       return Map.from(response.data);
-    } on DioException catch (e) {
-      throw ApiException(
-        e.error is SocketException
-            ? ErrorMessageKeysAndCode.noInternetCode
-            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
-      );
-    } on ApiException catch (e) {
+    } 
+    // on DioException catch (e) {
+    //   throw ApiException(
+    //     e.error is SocketException
+    //         ? ErrorMessageKeysAndCode.noInternetCode
+    //         : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+    //   );
+    // } 
+    on ApiException catch (e) {
       throw ApiException(e.errorMessage);
     } catch (e) {
       throw ApiException(ErrorMessageKeysAndCode.defaultErrorMessageKey);
