@@ -172,13 +172,13 @@ class Api {
       }
       return Map.from(response.data);
     } 
-    // on DioException catch (e) {
-    //   throw ApiException(
-    //     e.error is SocketException
-    //         ? ErrorMessageKeysAndCode.noInternetCode
-    //         : ErrorMessageKeysAndCode.defaultErrorMessageCode,
-    //   );
-    // } 
+    on DioException catch (e) {
+      throw ApiException(
+        e.error is SocketException
+            ? ErrorMessageKeysAndCode.noInternetCode
+            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+      );
+    } 
     on ApiException catch (e) {
       throw ApiException(e.errorMessage);
     } catch (e) {
@@ -215,13 +215,13 @@ class Api {
 
       return Map.from(response.data);
     } 
-    // on DioException catch (e) {
-    //   throw ApiException(
-    //     e.error is SocketException
-    //         ? ErrorMessageKeysAndCode.noInternetCode
-    //         : ErrorMessageKeysAndCode.defaultErrorMessageCode,
-    //   );
-    // } 
+    on DioException catch (e) {
+      throw ApiException(
+        e.error is SocketException
+            ? ErrorMessageKeysAndCode.noInternetCode
+            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+      );
+    } 
     on ApiException catch (e) {
       throw ApiException(e.errorMessage);
     } catch (e) {
@@ -247,13 +247,13 @@ class Api {
         },
       );
     } 
-    // on DioException catch (e) {
-    //   throw ApiException(
-    //     e.error is SocketException
-    //         ? ErrorMessageKeysAndCode.noInternetCode
-    //         : ErrorMessageKeysAndCode.defaultErrorMessageCode,
-    //   );
-    // } 
+    on DioException catch (e) {
+      throw ApiException(
+        e.error is SocketException
+            ? ErrorMessageKeysAndCode.noInternetCode
+            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+      );
+    } 
     on ApiException catch (e) {
       throw ApiException(e.errorMessage);
     } catch (e) {
