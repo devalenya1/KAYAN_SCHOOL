@@ -7,7 +7,7 @@ class CommonWebviewScreen extends StatefulWidget {
   String url;
   String page_name;
 
-  CommonWebviewScreen({Key key, this.url = "http://kayanschool.atwebpages.com/chat", this.page_name = ""})
+  CommonWebviewScreen({Key key, this.url = "http://kayanschool.atwebpages.com/chat", this.page_name = "Chat Room"})
       : super(key: key);
 
   @override
