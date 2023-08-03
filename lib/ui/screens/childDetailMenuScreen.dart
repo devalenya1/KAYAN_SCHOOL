@@ -181,14 +181,23 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
         //       },
         // // },
           // onPressed: () {
-        onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => MyWebView(
-                title: "Teachers Chat",
-                selectedUrl: "http://kayanschool.atwebpages.com/chat",
-              )
-            ));
-          },
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return CommonWebviewScreen(
+                          url: "http://kayanschool.atwebpages.com/chat",
+                           page_name: "Teachers Chat",
+                        );
+                      }));
+                    }
+       // onTap: () {
+          //  Navigator.of(context).push(MaterialPageRoute(
+           //   builder: (BuildContext context) => MyWebView(
+          //      title: "Teachers Chat",
+           //     selectedUrl: "http://kayanschool.atwebpages.com/chat",
+          //    )
+           // ));
+         // },
         child: Container(
           height: 80,
           decoration: BoxDecoration(
