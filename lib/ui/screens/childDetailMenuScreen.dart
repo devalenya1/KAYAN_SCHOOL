@@ -184,7 +184,7 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
             Navigator.of(context).push(MaterialPageRoute(
               builder: (BuildContext context) => MyWebView(
                 title: "Teachers Chat",
-                selectedUrl: "http://kayanschool.atwebpages.com/chatm",
+                selectedUrl: "http://kayanschool.atwebpages.com/chat",
               )
             ));
           },
