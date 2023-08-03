@@ -88,8 +88,8 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
             iconPath: UiUtils.getImagePath("teachers_icon.svg"),
             title: UiUtils.getTranslatedLabel(context, teachersKey),
           ),
-          _buildMenuContainer(
-            route: Routes.chatTeachers,
+          _buildMenuContainer1(
+            // route: Routes.chatTeachers,
             arguments: widget.student.id,
             iconPath: UiUtils.getImagePath("teachers_icon.svg"),
             title: UiUtils.getTranslatedLabel(context, teacherschatKey),
@@ -147,6 +147,97 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
             title: UiUtils.getTranslatedLabel(context, feesKey),
           ),
         ],
+      ),
+    );
+  }
+
+            
+                            
+  Widget _buildMenuContainer1({
+    required String iconPath,
+    required String title,
+    Object? arguments,
+    // required String route,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        // // onTap: () {
+              onTap: () async {
+              // onPressed: () async {
+                  const url = 'http://kayanschool.atwebpages.com/chat';  //Twitter's URL
+                  if(await canLaunch(url)){
+                     await launch(
+                        url, 
+                        forceWebView = true,       //enables WebView
+                        // enableJavaScript = true  //disables JavaScript
+                     );  
+                 }else {
+                   throw 'Could not launch $url';
+                 }
+              },
+        // },
+        child: Container(
+          height: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.secondary.withOpacity(0.25),
+            ),
+          ),
+          child: LayoutBuilder(
+            builder: (context, boxConstraints) {
+              return Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(14),
+                    margin: const EdgeInsets.symmetric(horizontal: 10.0),
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSecondary
+                          .withOpacity(0.225),
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    width: boxConstraints.maxWidth * (0.225),
+                    child: SvgPicture.asset(iconPath),
+                  ),
+                  SizedBox(
+                    width: boxConstraints.maxWidth * (0.025),
+                  ),
+                  SizedBox(
+                    width: boxConstraints.maxWidth * (0.475),
+                    child: Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  CircleAvatar(
+                    backgroundColor: Theme.of(context).colorScheme.secondary,
+                    radius: 17.5,
+                    child: Icon(
+                      Icons.arrow_forward,
+                      size: 22.5,
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                    ),
+                  ),
+                  SizedBox(
+                    width: boxConstraints.maxWidth * (0.035),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
       ),
     );
   }
