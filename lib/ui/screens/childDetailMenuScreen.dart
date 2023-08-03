@@ -189,7 +189,7 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
                            page_name: "Teachers Chat",
                         );
                       }));
-                    }
+                    },
        // onTap: () {
           //  Navigator.of(context).push(MaterialPageRoute(
            //   builder: (BuildContext context) => MyWebView(
