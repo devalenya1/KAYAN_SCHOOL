@@ -28,7 +28,7 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
     return Directionality(
 
       child: Scaffold(
-        backgroundColor: Colors.white,
+       // backgroundColor: Colors.white,
         appBar: buildAppBar(context),
         body: buildBody(),
       ),
@@ -56,17 +56,17 @@ class _CommonWebviewScreenState extends State<CommonWebviewScreen> {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-backgroundColor: Colors.blue,
+//backgroundColor: Colors.blue,
       centerTitle: true,
       leading: Builder(
-        builder: (context) => IconButton(
-          icon: Icon(Icons.arrow_back, Color.dark_grey),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+       // builder: (context) => IconButton(
+         // icon: Icon(Icons.arrow_back, Color.dark_grey),
+          //onPressed: () => Navigator.of(context).pop(),
+      // ),
       ),
       title: Text(
-        "${widget.page_name}",
-        style: TextStyle(fontSize: 16, Color.white),
+        "Chat Room",
+        //style: TextStyle(fontSize: 16, Color.white),
       ),
       elevation: 0.0,
       titleSpacing: 0,
