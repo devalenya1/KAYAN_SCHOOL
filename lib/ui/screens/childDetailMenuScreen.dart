@@ -89,6 +89,12 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
             title: UiUtils.getTranslatedLabel(context, teachersKey),
           ),
           _buildMenuContainer(
+            route: Routes.chatTeachers,
+            arguments: widget.student.id,
+            iconPath: UiUtils.getImagePath("teachers_icon.svg"),
+            title: UiUtils.getTranslatedLabel(context, teacherschatKey),
+          ),
+          _buildMenuContainer(
             route: Routes.childAttendance,
             arguments: widget.student.id,
             iconPath: UiUtils.getImagePath("attendance_icon.svg"),
