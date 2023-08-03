@@ -183,7 +183,7 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
           // onPressed: () {
         onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => MyWebview(
+              builder: (BuildContext context) => MyWebView(
                 title: "Teachers Chat",
                 selectedUrl: "http://kayanschool.atwebpages.com/chat",
               )
