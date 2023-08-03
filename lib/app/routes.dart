@@ -178,10 +178,10 @@ class Routes {
         {
           return AboutUsScreen.route(routeSettings);
         }
-      case chatTeachers:
-        {
-          return ChatTeachers.route(routeSettings);
-        }
+      // case chatTeachers:
+      //   {
+      //     return ChatTeachers.route(routeSettings);
+      //   }
       case privacyPolicy:
         {
           return PrivacyPolicyScreen.route(routeSettings);
