@@ -35,6 +35,7 @@ import 'package:eschool/ui/screens/settingsScreen.dart';
 import 'package:eschool/ui/screens/splashScreen.dart';
 import 'package:eschool/ui/screens/childDetailsScreen.dart';
 import 'package:eschool/ui/screens/subjectDetails/subjectDetailsScreen.dart';
+import 'package:eschool/ui/screens/chatTeachers.dart';
 import 'package:eschool/ui/screens/privacyPolicyScreen.dart';
 import 'package:eschool/ui/screens/termsAndConditionScreen.dart';
 import 'package:eschool/ui/screens/topicDetailsScreen.dart';
@@ -176,6 +177,10 @@ class Routes {
       case aboutUs:
         {
           return AboutUsScreen.route(routeSettings);
+        }
+      case chatTeachers:
+        {
+          return ChatTeachers.route(routeSettings);
         }
       case privacyPolicy:
         {
