@@ -15,6 +15,7 @@ const String profileKey = "profile";
 const String personalDetailsKey = "personalDetails";
 const String nameKey = "name";
 const String classKey = "class";
+const String teacherschatKey = "Chat Teacher";
 const String rollNumberKey = "rollNumber";
 const String dateOfBirthKey = "dateOfBirth";
 const String addressKey = "address";
