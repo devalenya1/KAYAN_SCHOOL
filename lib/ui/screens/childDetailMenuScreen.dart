@@ -3,7 +3,7 @@ import 'package:eschool/cubits/authCubit.dart';
 import 'package:eschool/data/models/student.dart';
 import 'package:eschool/data/models/subject.dart';
 import 'package:eschool/ui/widgets/customBackButton.dart';
-import 'ui/screens/my_webview.dart';
+import 'my_webview.dart';
 
 
 import 'package:eschool/ui/widgets/screenTopBackgroundContainer.dart';
@@ -180,7 +180,8 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
         //          }
         //       },
         // // },
-          onPressed: () {
+          // onPressed: () {
+        onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
               builder: (BuildContext context) => MyWebView(
                 title: "Teachers Chat",
