@@ -4,7 +4,7 @@ import 'package:eschool/utils/labelKeys.dart';
 // //Please add your admin panel url here and make sure you do not add '/' at the end of the url
 // const String baseUrl = "https://school.safqatbh.com";
 // const String baseUrl = "https://eschool.wrteam.me";
-const String baseUrl = "http://kayanschool.atwebpages.com";
+const String baseUrl = "http://kayanschool.atwebpages.com/management";
 const String databaseUrl = "$baseUrl/api/";
 
 //error message display duration
