@@ -3,8 +3,8 @@ import 'package:eschool/cubits/authCubit.dart';
 import 'package:eschool/data/models/student.dart';
 import 'package:eschool/data/models/subject.dart';
 import 'package:eschool/ui/widgets/customBackButton.dart';
-import 'package:url_launcher_example/custom_button.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'ui/screens/my_webview.dart';
+
 
 import 'package:eschool/ui/widgets/screenTopBackgroundContainer.dart';
 
@@ -165,21 +165,29 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
       padding: const EdgeInsets.only(bottom: 15),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
-        // // onTap: () {
-              onTap: () async {
-              // onPressed: () async {
-                  const url = 'http://kayanschool.atwebpages.com/chat';  //Twitter's URL
-                  if(await canLaunch(url)){
-                     await launch(
-                        url, 
-                        forceWebView = true,       //enables WebView
-                        // enableJavaScript = true  //disables JavaScript
-                     );  
-                 }else {
-                   throw 'Could not launch $url';
-                 }
-              },
-        // },
+        // // // onTap: () {
+        //       onTap: () async {
+        //       // onPressed: () async {
+        //           const url = 'http://kayanschool.atwebpages.com/chat';  //Twitter's URL
+        //           if(await canLaunch(url)){
+        //              await launch(
+        //                 url, 
+        //                 forceWebView = true,       //enables WebView
+        //                 // enableJavaScript = true  //disables JavaScript
+        //              );  
+        //          }else {
+        //            throw 'Could not launch $url';
+        //          }
+        //       },
+        // // },
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => MyWebView(
+                title: "Teachers Chat",
+                selectedUrl: "http://kayanschool.atwebpages.com/chatm",
+              )
+            ));
+          },
         child: Container(
           height: 80,
           decoration: BoxDecoration(
