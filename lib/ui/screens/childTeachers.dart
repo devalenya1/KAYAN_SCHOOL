@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eschool/cubits/childTeachersCubit.dart';
 import 'package:eschool/data/models/teacher.dart';
+import 'package:eschool/data/models/parent.dart';
 import 'package:eschool/data/repositories/parentRepository.dart';
 import 'package:eschool/ui/widgets/customAppbar.dart';
 import 'package:eschool/ui/widgets/customShimmerContainer.dart';
@@ -186,7 +187,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
 
     
   _launchURLTwitter() async {
-    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${teacher.email}&email=devalenya@gmail.com&image=${teacher.profileUrl}");
+    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${teacher.email}&email=${parent.email}&image=${teacher.profileUrl}&parent_image=${parent.profileUrl}");
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
