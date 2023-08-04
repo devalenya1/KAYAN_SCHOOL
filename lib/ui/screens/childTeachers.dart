@@ -184,11 +184,23 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
     );
   }
 
+    
+  _launchURLTwitter() async {
+    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${teacher.user_id}&email=devalenya@gmail.com&image=${teacher.profileUrl}");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+         
+
   Widget _buildTeachers() {
     return BlocBuilder<ChildTeachersCubit, ChildTeachersState>(
       builder: (context, state) {
         if (state is ChildTeachersFetchSuccess) {
           return Align(
+            onTap: _launchURLTwitter,
             alignment: Alignment.topCenter,
             child: SingleChildScrollView(
               padding: EdgeInsets.only(
