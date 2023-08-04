@@ -46,6 +46,16 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
     });
     super.initState();
   }
+      
+  _launchURLTwitter() async {
+    var url = Uri.parse("${databaseUrl}chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+         
 
   Widget _buildTeacherDetailsContainer(Teacher teacher) {
     return Container(
@@ -192,16 +202,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
     );
   }
 
-    
-  _launchURLTwitter() async {
-    var url = Uri.parse("${databaseUrl}chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-         
+
 
   Widget _buildTeachers() {
     return BlocBuilder<ChildTeachersCubit, ChildTeachersState>(
