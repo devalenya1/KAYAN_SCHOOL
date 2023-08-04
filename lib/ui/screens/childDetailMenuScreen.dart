@@ -157,7 +157,7 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
 
    
   _launchURLTwitter() async {
-    var url = Uri.parse("http://kayanschool.atwebpages.com/chat?student_id=${AppConfig.RAW_BASE_URL}&class_id=deval");
+    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${AppConfig.RAW_BASE_URL}&email=devalenya@gmail.com");
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
