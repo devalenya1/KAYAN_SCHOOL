@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eschool/cubits/childTeachersCubit.dart';
+import 'package:eschool/cubits/authCubit.dart';
 import 'package:eschool/data/models/teacher.dart';
 import 'package:eschool/data/models/parent.dart';
 import 'package:eschool/data/repositories/parentRepository.dart';
@@ -13,6 +14,9 @@ import 'package:eschool/utils/uiUtils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:eschool/utils/constants.dart';
 
 class ChildTeachersScreen extends StatefulWidget {
   final int childId;
@@ -81,6 +85,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
               ),
               Expanded(
                 child: Column(
+                 onTap: _launchURLTwitter,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -187,7 +192,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
 
     
   _launchURLTwitter() async {
-    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${teacher.email}&email=${parent.email}&image=${teacher.profileUrl}&parent_image=${parent.profileUrl}");
+    var url = Uri.parse("${databaseUrl}chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}&parent_image=${context.read<AuthCubit>().getParentDetails().image}");
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
@@ -201,7 +206,6 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
       builder: (context, state) {
         if (state is ChildTeachersFetchSuccess) {
           return Align(
-            onTap: _launchURLTwitter,
             alignment: Alignment.topCenter,
             child: SingleChildScrollView(
               padding: EdgeInsets.only(
