@@ -84,8 +84,8 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
                 width: boxConstraints.maxWidth * (0.05),
               ),
               Expanded(
+                child: InkWell(
                 child: Column(
-                 onTap: _launchURLTwitter,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -131,6 +131,8 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
                     //   ],
                     // ),
                   ],
+                ),
+                 onTap: _launchURLTwitter,
                 ),
               )
             ],
@@ -192,7 +194,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
 
     
   _launchURLTwitter() async {
-    var url = Uri.parse("${databaseUrl}chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}&parent_image=${context.read<AuthCubit>().getParentDetails().image}");
+    var url = Uri.parse("${databaseUrl}chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
