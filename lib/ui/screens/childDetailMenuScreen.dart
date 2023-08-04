@@ -153,7 +153,16 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
     );
   }
 
-            
+   
+  _launchURLTwitter() async {
+    var url = Uri.parse("http://kayanschool.atwebpages.com/chat");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+         
                             
   Widget _buildMenuContainer1({
     required String iconPath,
@@ -165,6 +174,11 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
       padding: const EdgeInsets.only(bottom: 15),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
+        onTap: _launchURLTwitter,
+            child: Icon(
+              FontAwesomeIcons.twitter,
+              size: 20,
+            ),
         // // // onTap: () {
         //       onTap: () async {
         //       // onPressed: () async {
@@ -180,24 +194,15 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
         //          }
         //       },
         // // },
-          // onPressed: () {
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return CommonWebviewScreen(
-                          url: "http://kayanschool.atwebpages.com/chat",
-                           page_name: "Teachers Chat",
-                        );
-                      }));
-                    },
-       // onTap: () {
-          //  Navigator.of(context).push(MaterialPageRoute(
-           //   builder: (BuildContext context) => MyWebView(
-          //      title: "Teachers Chat",
-           //     selectedUrl: "http://kayanschool.atwebpages.com/chat",
-          //    )
-           // ));
-         // },
+                    // onTap: () {
+                    //   Navigator.push(context,
+                    //       MaterialPageRoute(builder: (context) {
+                    //     return CommonWebviewScreen(
+                    //       url: "http://kayanschool.atwebpages.com/chat",
+                    //        page_name: "Teachers Chat",
+                    //     );
+                    //   }));
+                    // },
         child: Container(
           height: 80,
           decoration: BoxDecoration(
