@@ -186,7 +186,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
 
     
   _launchURLTwitter() async {
-    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${teacher.user_id}&email=devalenya@gmail.com&image=${teacher.profileUrl}");
+    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${teacher.email}&email=devalenya@gmail.com&image=${teacher.profileUrl}");
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
