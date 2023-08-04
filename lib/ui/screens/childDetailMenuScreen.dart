@@ -177,10 +177,7 @@ class ChildDetailMenuScreenState extends State<ChildDetailMenuScreen> {
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: _launchURLTwitter,
-            child: Icon(
-              FontAwesomeIcons.twitter,
-              size: 20,
-            ),
+            
         // // // onTap: () {
         //       onTap: () async {
         //       // onPressed: () async {
