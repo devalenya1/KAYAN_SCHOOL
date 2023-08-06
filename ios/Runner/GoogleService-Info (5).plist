@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>210254497657-2poa54eqcccrc0nqel6h4ut1aurd23f5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.210254497657-2poa54eqcccrc0nqel6h4ut1aurd23f5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7LGKSQRcHpaeQ9uL8qpbgY10JWrN6wnU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>210254497657</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kayan.school</string>
+	<key>PROJECT_ID</key>
+	<string>kayan-ec441</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kayan-ec441.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:210254497657:ios:986bc2f9a4e0fbabe711a8</string>
+</dict>
+</plist>
