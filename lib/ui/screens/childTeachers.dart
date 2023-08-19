@@ -53,7 +53,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
   Widget _buildTeacherDetailsContainer(Teacher teacher) {
 
      _launchURLTwitter() async {
-    var url = Uri.parse("http://kayanschool.atwebpages.com/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
+    var url = Uri.parse("http://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
