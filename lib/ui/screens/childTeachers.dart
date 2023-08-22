@@ -20,6 +20,10 @@ import 'package:eschool/utils/constants.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:file_picker_example/src/file_picker_demo.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class ChildTeachersScreen extends StatefulWidget {
   final int childId;
@@ -41,11 +45,24 @@ class ChildTeachersScreen extends StatefulWidget {
 class YourWebView extends StatelessWidget {
   String url;
   YourWebView(this.url);
-  // await  PermissionHandler().requestPermissions(<PermissionGroup>[
-  //   PermissionGroup.storage,
-  //   PermissionGroup.camera,
-  //   PermissionGroup.photos
-  // ]);
+  
+  void addFileSelectionListener() async {
+    if (Platform.isAndroid) {
+      final androidController = controller.platform as AndroidWebViewController;
+      await androidController.setOnShowFileSelector(_androidFilePicker);
+    }
+  }
+
+  void main() => runApp(FilePickerDemo());
+ //  Future<List<String>> _androidFilePicker(final FileSelectorParams params) async {
+ //  final result = await FilePicker.platform.pickFiles();
+
+ //  if (result != null && result.files.single.path != null) {
+ //    final file = File(result.files.single.path!);
+ //    return [file.uri.toString()];
+ //  }
+ //  return [];
+ // }
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
