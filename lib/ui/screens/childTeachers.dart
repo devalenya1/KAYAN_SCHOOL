@@ -17,6 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:eschool/utils/constants.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ChildTeachersScreen extends StatefulWidget {
   final int childId;
@@ -38,7 +39,11 @@ class ChildTeachersScreen extends StatefulWidget {
 class YourWebView extends StatelessWidget {
   String url;
   YourWebView(this.url);
-
+  await  PermissionHandler().requestPermissions(<PermissionGroup>[
+    PermissionGroup.storage,
+    PermissionGroup.camera,
+    PermissionGroup.photos
+  ]);
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
