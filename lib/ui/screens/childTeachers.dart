@@ -45,23 +45,27 @@ class ChildTeachersScreen extends StatefulWidget {
 class YourWebView extends StatelessWidget {
   String url;
   YourWebView(this.url);
-  
-  FilePickerResult? result = await FilePicker.platform.pickFiles();
-  //   if (result != null) {
-  //      File file = File(result.files.single.path);
-  //   } else {
-  //      // User canceled the picker
-  //   }
 
   
-  // final result = await FilePicker.platform.pickFiles();
-  if (result != null && result.files.single.path != null) {
-    final file = File(result.files.single.path!);
-    return [file.uri.toString()];
-  } else {
-       // User canceled the picker
+  void addFileSelectionListener() async {
+    // if (Platform.isAndroid) {
+    //   final androidController = controller.platform as AndroidWebViewController;
+    //   await androidController.setOnShowFileSelector(_androidFilePicker);
+    // } else {
+      final Completer<WebViewController> _controller = Completer<WebViewController>();
+      await _controller.setOnShowFileSelector(_androidFilePicker);
+    // }
   }
-  return [];
+  
+  Future<List<String>> _androidFilePicker(final FileSelectorParams params) async {
+      final result = await FilePicker.platform.pickFiles();
+
+      if (result != null && result.files.single.path != null) {
+         final file = File(result.files.single.path!);
+         return [file.uri.toString()];
+      }
+         return [];
+  }
 
   
   final Completer<WebViewController> _controller =
