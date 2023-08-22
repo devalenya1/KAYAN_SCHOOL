@@ -17,12 +17,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:eschool/utils/constants.dart';
-import 'package:permission_handler/permission_handler.dart';
+//import 'package:permission_handler/permission_handler.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
-import 'package:webview_flutter_android/webview_flutter_android.dart';
+//import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
+//import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class ChildTeachersScreen extends StatefulWidget {
   final int childId;
