@@ -48,6 +48,8 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   equatable: ^2.0.3
+  webview_flutter_wkwebview: ^3.7.3
+  webview_flutter_android: ^3.9.3
   cached_network_image: ^3.2.0
   shimmer: ^3.0.0
   path_provider: ^2.0.9
