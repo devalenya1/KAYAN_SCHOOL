@@ -18,6 +18,7 @@ import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:eschool/utils/constants.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class ChildTeachersScreen extends StatefulWidget {
   final int childId;
@@ -39,11 +40,11 @@ class ChildTeachersScreen extends StatefulWidget {
 class YourWebView extends StatelessWidget {
   String url;
   YourWebView(this.url);
-  await  PermissionHandler().requestPermissions(<PermissionGroup>[
-    PermissionGroup.storage,
-    PermissionGroup.camera,
-    PermissionGroup.photos
-  ]);
+  // await  PermissionHandler().requestPermissions(<PermissionGroup>[
+  //   PermissionGroup.storage,
+  //   PermissionGroup.camera,
+  //   PermissionGroup.photos
+  // ]);
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
@@ -60,14 +61,6 @@ class YourWebView extends StatelessWidget {
             onWebViewCreated: (WebViewController webViewController) {
               _controller.complete(webViewController);
             },
-            // navigationDelegate: (NavigationRequest request) {
-            //   if (request.url.startsWith('https://www.youtube.com/')) {
-            //     print('blocking navigation to $request}');
-            //     return NavigationDecision.prevent;
-            //   }
-            //   print('allowing navigation to $request');
-            //   return NavigationDecision.navigate;
-            // },
             onPageStarted: (String url) {
               print('Page started loading: $url');
             },
@@ -193,8 +186,8 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
                     // ),
                   ],
                 ),
-                 //onTap: _launchURLTwitter,
-                 onPressed: _launchURLTwitter,
+                 onTap: _launchURLTwitter,
+                 //onPressed: _launchURLTwitter,
                 ),
               )
             ],
