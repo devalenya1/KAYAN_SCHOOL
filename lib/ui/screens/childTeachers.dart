@@ -42,46 +42,46 @@ class ChildTeachersScreen extends StatefulWidget {
   }
 }
 class YourWebView extends StatelessWidget {
+   String url;
+   YourWebView(this.url);
   // @override
   // void initState() {
   // super.initState();
-   String url;
-   YourWebView(this.url);
   // _controller = WebViewController() 
   // ..loadRequest(Uri.parse("https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture"));
   //   initFilePicker(); 
   // }
   
-  initFilePicker() async {
-    if (Platform.isAndroid) {
-      final androidController = (_controller.platform as webview_flutter_android.AndroidWebViewController);
-      await androidController.setOnShowFileSelector(_androidFilePicker);
-    } else {
-      final androidController = (_controller.platform as webview_flutter_android.AndroidWebViewController);
-      await androidController.setOnShowFileSelector(_androidFilePicker);
-    }
-  }
+  // initFilePicker() async {
+  //   if (Platform.isAndroid) {
+  //     final androidController = (_controller.platform as webview_flutter_android.AndroidWebViewController);
+  //     await androidController.setOnShowFileSelector(_androidFilePicker);
+  //   } else {
+  //     final androidController = (_controller.platform as webview_flutter_android.AndroidWebViewController);
+  //     await androidController.setOnShowFileSelector(_androidFilePicker);
+  //   }
+  // }
   
-  Future<List<String>> _androidFilePicker( webview_flutter_android.FileSelectorParams params) async {
-   try {
-      if (params.mode == webview_flutter_android.FileSelectorMode.openMultiple) {
-        final attachments = await FilePicker.platform.pickFiles(allowMultiple: true);
-        if (attachments == null) return [];
+  // Future<List<String>> _androidFilePicker( webview_flutter_android.FileSelectorParams params) async {
+  //  try {
+  //     if (params.mode == webview_flutter_android.FileSelectorMode.openMultiple) {
+  //       final attachments = await FilePicker.platform.pickFiles(allowMultiple: true);
+  //       if (attachments == null) return [];
 
-        return attachments.files
-            .where((element) => element.path != null)
-            .map((e) => File(e.path!).uri.toString())
-            .toList();
-      } else {
-        final attachment = await FilePicker.platform.pickFiles();
-        if (attachment == null) return [];
-        File file = File(attachment.files.single.path!);
-        return [file.uri.toString()];
-      }
-    } catch (e) {
-      return [];
-    }
-  }
+  //       return attachments.files
+  //           .where((element) => element.path != null)
+  //           .map((e) => File(e.path!).uri.toString())
+  //           .toList();
+  //     } else {
+  //       final attachment = await FilePicker.platform.pickFiles();
+  //       if (attachment == null) return [];
+  //       File file = File(attachment.files.single.path!);
+  //       return [file.uri.toString()];
+  //     }
+  //   } catch (e) {
+  //     return [];
+  //   }
+  // }
   
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
@@ -95,7 +95,6 @@ class YourWebView extends StatelessWidget {
         body: Builder(builder: (BuildContext context) {
           return WebView(
             initialUrl: url,
-            initFilePicker(),
             javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (WebViewController webViewController) {
               _controller.complete(webViewController);
