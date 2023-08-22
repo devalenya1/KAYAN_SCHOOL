@@ -20,9 +20,9 @@ import 'package:eschool/utils/constants.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
-//import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:file_picker/file_picker.dart';
-//import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class ChildTeachersScreen extends StatefulWidget {
   final int childId;
@@ -42,15 +42,15 @@ class ChildTeachersScreen extends StatefulWidget {
   }
 }
 class YourWebView extends StatelessWidget {
-  @override
-  void initState() {
-  super.initState();
+  // @override
+  // void initState() {
+  // super.initState();
    String url;
    YourWebView(this.url);
   // _controller = WebViewController() 
   // ..loadRequest(Uri.parse("https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture"));
-    initFilePicker(); 
-  }
+  //   initFilePicker(); 
+  // }
   
   initFilePicker() async {
     if (Platform.isAndroid) {
@@ -95,6 +95,7 @@ class YourWebView extends StatelessWidget {
         body: Builder(builder: (BuildContext context) {
           return WebView(
             initialUrl: url,
+            initFilePicker(),
             javascriptMode: JavascriptMode.unrestricted,
             onWebViewCreated: (WebViewController webViewController) {
               _controller.complete(webViewController);
