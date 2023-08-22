@@ -35,7 +35,45 @@ class ChildTeachersScreen extends StatefulWidget {
     );
   }
 }
+class YourWebView extends StatelessWidget {
+  String url;
+  YourWebView(this.url);
 
+  final Completer<WebViewController> _controller =
+      Completer<WebViewController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        // appBar: AppBar(
+        //   title: const Text('Flutter WebView example'),
+        // ),
+        body: Builder(builder: (BuildContext context) {
+          return WebView(
+            initialUrl: url,
+            javascriptMode: JavascriptMode.unrestricted,
+            onWebViewCreated: (WebViewController webViewController) {
+              _controller.complete(webViewController);
+            },
+            // navigationDelegate: (NavigationRequest request) {
+            //   if (request.url.startsWith('https://www.youtube.com/')) {
+            //     print('blocking navigation to $request}');
+            //     return NavigationDecision.prevent;
+            //   }
+            //   print('allowing navigation to $request');
+            //   return NavigationDecision.navigate;
+            // },
+            onPageStarted: (String url) {
+              print('Page started loading: $url');
+            },
+            onPageFinished: (String url) {
+              print('Page finished loading: $url');
+            },
+            gestureNavigationEnabled: true,
+          );
+        }));
+  }
+}
 class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
   @override
   void initState() {
@@ -51,15 +89,20 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
          
 
   Widget _buildTeacherDetailsContainer(Teacher teacher) {
-
-     _launchURLTwitter() async {
-    var url = Uri.parse("http://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url, forceSafariVC: true, forceWebView: false, enableJavaSrcipt: true,);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+     _launchURLTwitter() {
+        Navigator.push(
+           context,
+              MaterialPageRoute(
+                 builder: (context) => YourWebView('http://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}')));
+     }
+     // _launchURLTwitter() async {
+     //    var url = Uri.parse("http://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
+     //       if (await canLaunchUrl(url)) {
+     //           await launchUrl(url);
+     //       } else {
+     //        throw 'Could not launch $url';
+     //       }
+     // }
     
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
@@ -145,7 +188,8 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
                     // ),
                   ],
                 ),
-                 onTap: _launchURLTwitter,
+                 //onTap: _launchURLTwitter,
+                 onPressed: _launchURLTwitter,
                 ),
               )
             ],
