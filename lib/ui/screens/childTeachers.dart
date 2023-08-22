@@ -129,7 +129,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
         Navigator.push(
            context,
               MaterialPageRoute(
-                 builder: (context) => YourWebView('http://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}')));
+                 builder: (context) => YourWebView('https://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}')));
      }
      // _launchURLTwitter() async {
      //    var url = Uri.parse("http://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
