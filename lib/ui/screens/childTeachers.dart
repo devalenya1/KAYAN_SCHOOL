@@ -21,7 +21,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 //import 'package:webview_flutter_android/webview_flutter_android.dart';
-//import 'package:file_picker_example/src/file_picker_demo.dart';
 import 'package:file_picker/file_picker.dart';
 //import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
@@ -43,30 +42,43 @@ class ChildTeachersScreen extends StatefulWidget {
   }
 }
 class YourWebView extends StatelessWidget {
-  String url;
-  YourWebView(this.url);
-
-  
-  void addFileSelectionListener() async {
-    // if (Platform.isAndroid) {
-    //   final androidController = controller.platform as AndroidWebViewController;
-    //   await androidController.setOnShowFileSelector(_androidFilePicker);
-    // } else {
-      final Completer<WebViewController> _controller = Completer<WebViewController>();
-      await _controller.setOnShowFileSelector(_androidFilePicker);
-    // }
+  @override
+  void initState() {
+  super.initState();
+   String url;
+   YourWebView(this.url);
+  // _controller = WebViewController() 
+  // ..loadRequest(Uri.parse("https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture"));
+    initFilePicker(); 
   }
   
-  Future<List<String>> _androidFilePicker(final FileSelectorParams params) async {
-      final result = await FilePicker.platform.pickFiles();
+  initFilePicker() async {
+    if (Platform.isAndroid) {
+      final androidController = (_controller.platform as webview_flutter_android.AndroidWebViewController);
+      await androidController.setOnShowFileSelector(_androidFilePicker);
+    }
+  }
+  
+  Future<List<String>> _androidFilePicker( webview_flutter_android.FileSelectorParams params) async {
+   try {
+      if (params.mode == webview_flutter_android.FileSelectorMode.openMultiple) {
+        final attachments = await FilePicker.platform.pickFiles(allowMultiple: true);
+        if (attachments == null) return [];
 
-      if (result != null && result.files.single.path != null) {
-         final file = File(result.files.single.path!);
-         return [file.uri.toString()];
+        return attachments.files
+            .where((element) => element.path != null)
+            .map((e) => File(e.path!).uri.toString())
+            .toList();
+      } else {
+        final attachment = await FilePicker.platform.pickFiles();
+        if (attachment == null) return [];
+        File file = File(attachment.files.single.path!);
+        return [file.uri.toString()];
       }
-         return [];
+    } catch (e) {
+      return [];
+    }
   }
-
   
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
