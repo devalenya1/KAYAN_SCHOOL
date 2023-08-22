@@ -55,7 +55,7 @@ class _ChildTeachersScreenState extends State<ChildTeachersScreen> {
      _launchURLTwitter() async {
     var url = Uri.parse("http://kayan-bh.com/chat/chat/chat.php?user_id=${teacher.email}&email=${context.read<AuthCubit>().getParentDetails().email}&image=${teacher.profileUrl}");
     if (await canLaunchUrl(url)) {
-      await launchUrl(url);
+      await launchUrl(url, forceSafariVC: true, forceWebView: false, enableJavaSrcipt: true,);
     } else {
       throw 'Could not launch $url';
     }
