@@ -56,6 +56,9 @@ class YourWebView extends StatelessWidget {
     if (Platform.isAndroid) {
       final androidController = (_controller.platform as webview_flutter_android.AndroidWebViewController);
       await androidController.setOnShowFileSelector(_androidFilePicker);
+    } else {
+      final androidController = (_controller.platform as webview_flutter_android.AndroidWebViewController);
+      await androidController.setOnShowFileSelector(_androidFilePicker);
     }
   }
   
