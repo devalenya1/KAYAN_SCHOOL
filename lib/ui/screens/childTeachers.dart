@@ -89,9 +89,9 @@ class YourWebView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: const Text('Flutter WebView example'),
-        // ),
+        appBar: AppBar(
+          title: const Text('Chat'),
+        ),
         body: Builder(builder: (BuildContext context) {
           return WebView(
             initialUrl: url,
