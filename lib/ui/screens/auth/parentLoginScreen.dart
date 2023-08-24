@@ -56,10 +56,10 @@ class _ParentLoginScreenState extends State<ParentLoginScreen>
   );
 
   final TextEditingController _emailTextEditingController =
-      TextEditingController(text: " "); //default email
+      TextEditingController(text: ""); //default email
 
   final TextEditingController _passwordTextEditingController =
-      TextEditingController(text: " "); //default password
+      TextEditingController(text: ""); //default password
 
   bool _hidePassword = true;
 
