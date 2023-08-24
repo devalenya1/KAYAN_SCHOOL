@@ -60,10 +60,10 @@ class _StudentLoginScreenState extends State<StudentLoginScreen>
   );
 
   final TextEditingController _grNumberTextEditingController =
-      TextEditingController(text: " "); //default grNumber
+      TextEditingController(text: ""); //default grNumber
 
   final TextEditingController _passwordTextEditingController =
-      TextEditingController(text: " "); //default password
+      TextEditingController(text: ""); //default password
 
   bool _hidePassword = true;
 
